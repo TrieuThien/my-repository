@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+    <link rel="stylesheet" href="{% static "global.css" %}">
+    <body>
+        {% comment %}
+        {% for x in fruits %}
+            <h1> {{x}} </h1>
+        {% endfor %}
+        <p> In views.py you can see what the fruits variable looks like.</p>
+        
+
+        <p>Hello {{name}}, how old are you??</p>
+        {% with age=19 %}
+        {% if age == 18 %}
+        <p>I'm {{ age }} years old</p>
+        {% else %}
+        <p>I'm not 18 years old</p>
+        {% endif %}
+        {% endwith %}
+
+        {% include "menu.html" with me="THIEN" sponsor="W3SHOOLS" %}
+
+        {% include "footer.html" %}
+
+        {% endcomment %}
+        <p>Before sort</p>
+        <table border=1">
+            <tr>
+                <th>ID</th>
+                <th>First name</th>
+                <th>Last name</th>
+            </tr>
+            {% for member in before_sort %}
+                <tr>
+                    <td>{{member.id}}</td>
+                    <td>{{member.firstname}}</td>
+                    <td>{{member.lastname}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <p>After sort</p>
+        <table border=1">
+            <tr>
+                <th>ID</th>
+                <th>First name</th>
+                <th>Last name</th>
+            </tr>
+            {% for member in mymembers %}
+                <tr>
+                    <td>{{member.id}}</td>
+                    <td>{{member.firstname}}</td>
+                    <td>{{member.lastname}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

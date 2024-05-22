@@ -1,0 +1,86 @@
+
+{% extends "master.html" %}
+
+{% block title %}
+    For loop in Django
+{% endblock %}
+
+{% block content %}
+    <h1>For loops Django</h1>
+    <h1>My fruits</h1>
+    {% for x in fruits %}
+        <p> {{x}} </p>
+    {% endfor %}
+
+    <h1>For loops Django get data from Model</h1>
+    <h1>My data in Model</h1>
+    <ul>
+        {% for people in members %}
+            <li> {{ people.lastname }} {{ people.firstname }} {{people.phone}} </li>
+        {% endfor%}
+    </ul>
+
+    <h1>My data in Model, use for loop reversed</h1>
+    <ul>
+        {% for people in members reversed %}
+            <li> {{ people.lastname }} {{ people.firstname }} {{people.phone}} </li>
+        {% endfor%}
+    </ul>
+
+    <h1>For loop, forloop.counter variable</h1>
+    <ul>
+        {% for x in fruits %}
+          <li>{{ forloop.counter }}</li>
+        {% endfor %}
+    </ul>
+    
+    <h1>For loop, forloop.counter0 variable</h1>
+    <ul>
+        {% for x in fruits %}
+          <li>{{ forloop.counter0 }}</li>
+        {% endfor %}
+    </ul> 
+
+    <h1>For loop, forloop.first variable</h1>
+    <ul>
+        {% for x in fruits %}
+          <li
+            {% if forloop.first %}
+              style='background-color:lightblue;'
+            {% endif %}
+          >{{ x }}</li>
+        {% endfor %}
+    </ul> 
+
+    <h1>For loop, forloop.last variable</h1>
+    <ul>
+        {% for x in fruits %}
+          <li
+            {% if forloop.last %}
+              style='background-color:lightblue;'
+            {% endif %}
+          >{{ x }}</li>
+        {% endfor %}
+    </ul> 
+
+    <h1>For loop, forloop.revcounter variable</h1>
+    <ul>
+        {% for x in fruits %}
+          <li>{{ forloop.revcounter }}</li>
+        {% endfor %}
+    </ul>
+
+    <h1>For loop, forloop.revcounter0 variable</h1>
+    <ul>
+        {% for x in fruits %}
+          <li>{{ forloop.revcounter0 }}</li>
+        {% endfor %}
+    </ul>
+
+    {% comment "Why i want to comment here??" %}
+    
+    This is smaller comment:  <h1>Welcome{# Everyone#}</h1>
+    {% endcomment %}
+
+
+{% endblock %}
